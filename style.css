@@ -21,5 +21,33 @@ header {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
-	margin-bottom: 160px;
+	height: 100%;
+	padding-bottom: 16px;
+	padding-top: 16px;
+	background-color: bisque;
+}
+
+.left-menu {
+	display: flex;
+	justify-content: center;
+	flex-shrink: 3;
+	padding: 16px;
+	width: 100%;
+}
+.container {
+	padding: 16px;
+	display: flex;
+	justify-content: center;
+	flex-shrink: 1;
+	width: 100%;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: gray;
+	padding: 32px;
+	font-size: 16px;
+	width: 100%;
 }
