@@ -1,0 +1,25 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+	padding: 0px;
+	margin: 0px;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 36px;
+	padding: 16px;
+	background-color: red;
+	width: 100%;
+}
+
+#mid-container {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-bottom: 160px;
+}
