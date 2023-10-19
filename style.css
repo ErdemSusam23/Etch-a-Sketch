@@ -23,7 +23,7 @@ header {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
-	min-height: 800px;
+	max-height: 800px;
 	background-color: bisque;
 }
 
@@ -38,13 +38,19 @@ header {
 	background-color: azure;
 }
 .container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-shrink: 1;
+	display: grid;
+	grid-template-columns: auto;
 	width: 100%;
 	padding: 16px;
+	gap: 0.2%;
 	background-color: aquamarine;
+}
+
+.container > div {
+	width: 30px;
+	height: 30px;
+	border: 1px solid gray;
+	background-color: gray;
 }
 
 footer {
