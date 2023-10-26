@@ -4,6 +4,8 @@ let cell = document.createElement('div');
 let mouseDown = false;
 
 function createCanvas(numDivs) {
+	container.style.setProperty('--grid-column', numDivs);
+	container.style.setProperty('--grid-row', numDivs);
 	for (let index = 0; index < numDivs * numDivs; index++) {
 		let cell = document.createElement('div');
 		cell.addEventListener('mouseover', function () {
