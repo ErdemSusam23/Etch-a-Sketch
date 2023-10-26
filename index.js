@@ -1,32 +1,27 @@
 const container = document.querySelector('.grid-container');
 let cell = document.createElement('div');
 
-let mouseDown = true;
+let mouseDown = false;
 
 function createCanvas(numDivs) {
 	for (let index = 0; index < numDivs * numDivs; index++) {
 		let cell = document.createElement('div');
-		cell.addEventListener('mouseover', changeColor(cell));
+		cell.addEventListener('mouseover', function () {
+			changeColor(cell);
+		});
 		container.appendChild(cell).className = 'grid-item';
 	}
 }
 
 function changeColor(element) {
 	if (mouseDown) {
-		element.addEventListener('mouseover', function () {
-			element.style.backgroundColor = 'red';
-		});
+		element.style.backgroundColor = 'red';
 	}
 }
 
 function checkMouse() {
-	document.body.addEventListener('onmousedown', function () {
-		mouseDown = true;
-	});
-	document.body.addEventListener('onmouseup', function () {
-		mouseDown = false;
-	});
-	console.log(mouseDown);
+	container.onmousedown = () => (mouseDown = true);
+	container.onmouseup = () => (mouseDown = false);
 }
 
 checkMouse();
