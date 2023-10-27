@@ -1,10 +1,17 @@
 const container = document.querySelector('.grid-container');
 const menu = document.querySelector('.left-menu');
-const clearButton = document.createElement('button');
-const canvasButton = document.createElement('button');
+const clearButton = document.querySelector('.clear');
+const slider = document.querySelector('.slider');
+const output = document.getElementById('demo');
 let cell = document.createElement('div');
 
-canvasButton.innerText = 'Enter Size';
+checkMouse();
+
+output.innerHTML = slider.value + 'x' + slider.value;
+slider.onchange = function () {
+	output.innerHTML = this.value;
+	createCanvas(this.value);
+};
 
 clearButton.classList.add('clear');
 clearButton.innerText = 'CLEAR';
@@ -15,15 +22,6 @@ menu.appendChild(clearButton);
 let mouseDown = false;
 let canvasSize;
 
-checkMouse();
-
-canvasButton.addEventListener('click', function () {
-	container.innerHTML = '';
-	canvasSize = parseInt(prompt('Enter The Size of Canvas'));
-	checkCanvasSize(canvasSize);
-	console.log(typeof canvasSize);
-});
-
 clearButton.addEventListener('click', function () {
 	container.innerHTML = '';
 });
@@ -31,6 +29,7 @@ clearButton.addEventListener('click', function () {
 function createCanvas(numDivs) {
 	container.style.setProperty('--grid-column', numDivs);
 	container.style.setProperty('--grid-row', numDivs);
+	container.innerHTML = '';
 	for (let index = 0; index < numDivs * numDivs; index++) {
 		let cell = document.createElement('div');
 		cell.addEventListener('mouseover', function () {
@@ -49,14 +48,4 @@ function changeColor(element) {
 function checkMouse() {
 	container.onmousedown = () => (mouseDown = true);
 	container.onmouseup = () => (mouseDown = false);
-}
-
-function checkCanvasSize(size) {
-	if (size > 100) {
-		canvasSize = parseInt(
-			prompt('Size cannot be bigger than 100 please enter again')
-		);
-	} else {
-		createCanvas(canvasSize);
-	}
 }

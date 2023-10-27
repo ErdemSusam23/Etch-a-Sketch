@@ -15,7 +15,20 @@
 	<body>
 		<header>ETCH A SKECH</header>
 		<div id="mid-container">
-			<div class="left-menu">Menu</div>
+			<div class="left-menu">
+				<div>Menu</div>
+				<div class="slide-Container">
+					<input
+						type="range"
+						min="1"
+						max="40"
+						value="20"
+						class="slider"
+					/>
+					<div id="demo"></div>
+				</div>
+				<button class="clear"></button>
+			</div>
 			<div class="grid-container"></div>
 		</div>
 		<script src="index.js"></script>
