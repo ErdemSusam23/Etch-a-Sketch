@@ -2,25 +2,20 @@ const container = document.querySelector('.grid-container');
 const menu = document.querySelector('.left-menu');
 const clearButton = document.querySelector('.clear');
 const slider = document.querySelector('.slider');
-const output = document.getElementById('demo');
+const output = document.getElementById('size');
 let cell = document.createElement('div');
 
 checkMouse();
 
 output.innerHTML = slider.value + 'x' + slider.value;
+slider.oninput = function () {
+	output.innerHTML = this.value + 'x' + this.value;
+};
 slider.onchange = function () {
-	output.innerHTML = this.value;
 	createCanvas(this.value);
 };
 
-clearButton.classList.add('clear');
-clearButton.innerText = 'CLEAR';
-
-menu.appendChild(canvasButton);
-menu.appendChild(clearButton);
-
 let mouseDown = false;
-let canvasSize;
 
 clearButton.addEventListener('click', function () {
 	container.innerHTML = '';
@@ -46,6 +41,8 @@ function changeColor(element) {
 }
 
 function checkMouse() {
-	container.onmousedown = () => (mouseDown = true);
-	container.onmouseup = () => (mouseDown = false);
+	document.body.onmousedown = () => (mouseDown = true);
+	document.body.onmouseup = () => (mouseDown = false);
 }
+
+createCanvas(20);
