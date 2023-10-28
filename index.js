@@ -19,6 +19,7 @@ let mouseDown = false;
 
 clearButton.addEventListener('click', function () {
 	container.innerHTML = '';
+	createCanvas(slider.value);
 });
 
 function createCanvas(numDivs) {
@@ -27,6 +28,7 @@ function createCanvas(numDivs) {
 	container.innerHTML = '';
 	for (let index = 0; index < numDivs * numDivs; index++) {
 		let cell = document.createElement('div');
+		// fix color bug
 		cell.addEventListener('mouseover', function () {
 			changeColor(cell);
 		});
