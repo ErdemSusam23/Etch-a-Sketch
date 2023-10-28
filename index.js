@@ -28,9 +28,11 @@ function createCanvas(numDivs) {
 	container.innerHTML = '';
 	for (let index = 0; index < numDivs * numDivs; index++) {
 		let cell = document.createElement('div');
-		// fix color bug
 		cell.addEventListener('mouseover', function () {
 			changeColor(cell);
+		});
+		cell.addEventListener('mousedown', function () {
+			cell.style.backgroundColor = 'black';
 		});
 		container.appendChild(cell).className = 'grid-item';
 	}
@@ -38,7 +40,7 @@ function createCanvas(numDivs) {
 
 function changeColor(element) {
 	if (mouseDown) {
-		element.style.backgroundColor = 'red';
+		element.style.backgroundColor = 'black';
 	}
 }
 
